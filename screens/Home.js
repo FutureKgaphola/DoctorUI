@@ -1,6 +1,7 @@
 import { StyleSheet, View, Dimensions, Text, Image, TouchableOpacity, TextInput, FlatList } from "react-native";
 import { MaterialCommunityIcons,Fontisto,FontAwesome5 } from '@expo/vector-icons';
 import { Card } from "react-native-elements";
+import { Platform } from "react-native";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -48,7 +49,7 @@ const Home = ({navigation}) => {
                     <TextInput
                         underlineColorAndroid='transparent'
                         cursorColor={'transparent'}
-                        style={{ paddingLeft: 15, width: '100%',marginLeft:5,marginRight:5 }} placeholder="Search..."
+                        style={Platform.OS==='web' ? { paddingLeft: 15, width: '100%',marginLeft:5,marginRight:5,outlineStyle: 'none' } : { paddingLeft: 15, width: '100%',marginLeft:5,marginRight:5}} placeholder="Search..."
 
                     />
                 </View>
