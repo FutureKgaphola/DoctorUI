@@ -11,8 +11,8 @@ const Home = ({navigation}) => {
         { key: 2, title: 'Shots', backgroundColor: '#fff', fontColor: 'black', icon:<Fontisto name="injection-syringe" size={24} color="#687aeb" /> },
         { key: 3, title: 'Consultation', backgroundColor: '#fff', fontColor: 'black', icon:<MaterialCommunityIcons name="phone-plus"  size={24} color="#687aeb" /> },
         { key: 4, title: 'Ambulance', backgroundColor: '#fff', fontColor: 'black', icon:<MaterialCommunityIcons name="ambulance" size={24} color="#687aeb" /> },
-        { key: 5, title: 'Diagnostic', backgroundColor: '#ff6f29', fontColor: '#fff', icon:<FontAwesome5 name="user-nurse"  size={24} color="#fff"/> },
-        { key: 6, title: 'Diagnostic', backgroundColor: '#fff', fontColor: 'black', icon: <MaterialCommunityIcons name="test-tube" size={24} color="#687aeb"  /> }
+        { key: 5, title: 'Nurse', backgroundColor: '#ff6f29', fontColor: '#fff', icon:<FontAwesome5 name="user-nurse"  size={24} color="#fff"/> },
+        { key: 6, title: 'Lab Work', backgroundColor: '#fff', fontColor: 'black', icon: <MaterialCommunityIcons name="test-tube" size={24} color="#687aeb"  /> }
     ]
     return (
         <View style={styles.container}>
@@ -43,12 +43,12 @@ const Home = ({navigation}) => {
                 <View style={{backgroundColor:'#fff',borderTopLeftRadius:15,marginTop:-5,overflow:"hidden",height:height}}>
 
 
-                <View style={{ flexDirection: "row", backgroundColor: '#fff',borderColor:'black',borderWidth:0.2,marginTop:10, borderRadius: 15, padding: 10,zIndex:5,overflow:"hidden" }}>
+                <View style={{ flexDirection: "row", backgroundColor: '#fff',borderColor:'black',borderWidth:0.2,marginTop:10,marginLeft:5,marginRight:5, borderRadius: 15, padding: 10,zIndex:5,overflow:"hidden" }}>
                     <MaterialCommunityIcons name="magnify" size={24} color="black" />
                     <TextInput
                         underlineColorAndroid='transparent'
                         cursorColor={'transparent'}
-                        style={{ paddingLeft: 15, width: '100%' }} placeholder="Search..."
+                        style={{ paddingLeft: 15, width: '100%',marginLeft:5,marginRight:5 }} placeholder="Search..."
 
                     />
                 </View>

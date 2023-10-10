@@ -1,18 +1,22 @@
 import { StyleSheet, View, Dimensions, Text, Image, TouchableOpacity, FlatList } from "react-native";
-import { MaterialCommunityIcons, Fontisto, FontAwesome5, Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Fontisto, FontAwesome5,FontAwesome, Ionicons } from '@expo/vector-icons';
 import { Card } from "react-native-elements";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
 const TopDoctors = ({ navigation }) => {
     const cards = [
-        { key: 1, title: 'Diagnostic', backgroundColor: '#ff6f29', fontColor: '#fff', icon: <FontAwesome5 name="pen-fancy" size={24} color="#fff" /> },
-        { key: 2, title: 'Shots', backgroundColor: '#fff', fontColor: 'black', icon: <Fontisto name="injection-syringe" size={24} color="#687aeb" /> },
-        { key: 3, title: 'Consultation', backgroundColor: '#fff', fontColor: 'black', icon: <MaterialCommunityIcons name="phone-plus" size={24} color="#687aeb" /> },
-        { key: 4, title: 'Ambulance', backgroundColor: '#fff', fontColor: 'black', icon: <MaterialCommunityIcons name="ambulance" size={24} color="#687aeb" /> },
-        { key: 5, title: 'Diagnostic', backgroundColor: '#ff6f29', fontColor: '#fff', icon: <FontAwesome5 name="user-nurse" size={24} color="#fff" /> },
-        { key: 6, title: 'Diagnostic', backgroundColor: '#fff', fontColor: 'black', icon: <MaterialCommunityIcons name="test-tube" size={24} color="#687aeb" /> }
-    ]
+        { key: 1, title: '', backgroundColor: '#fff', fontColor: 'black', icon: <FontAwesome name="heartbeat" size={28} color="#687aeb" /> },
+        { key: 2, title: '', backgroundColor: '#ff6f29', fontColor: '#fff', icon: <Fontisto name="stethoscope" size={28} color="#fff" /> },
+        { key: 3, title: '', backgroundColor: '#fff', fontColor: 'black', icon: <FontAwesome5 name="tooth" size={28} color="#687aeb" /> },
+        { key: 4, title: '', backgroundColor: '#fff', fontColor: 'black', icon: <MaterialCommunityIcons name="dna" size={28} color="#687aeb" /> },
+        { key: 5, title: '', backgroundColor: '#ff6f29', fontColor: '#fff', icon: <Fontisto name="pills" size={28} color="#fff" /> },
+    ];
+    const doctors = [
+        { key: 1, title: 'Dr. Jaison',subtitle:'Pulmonogist', backgroundColor: '#00bed8',time:'10:00 AM - 3:00 PM'},
+        { key: 2, title: 'Dr. Wilson',subtitle:'General pulmonogist', backgroundColor: '#687ae9',time:'10:00 AM - 2:00 PM'},
+        { key: 3, title: 'Dr. Adams', subtitle:'Pulmonogist',backgroundColor: '#00c985',time:'11:00 AM - 4:00 PM'},
+      ]
     return (
         <View style={styles.container}>
             <View style={styles.childOne}>
@@ -60,7 +64,7 @@ const TopDoctors = ({ navigation }) => {
                                             containerStyle={{ borderColor: 'transparent', margin: 5, borderRadius: 15, backgroundColor: item.backgroundColor }}>
                                             <View style={{ alignItems: 'center' }}>
                                                 {item.icon}
-                                                <Text style={{ fontFamily: 'NunitoRegular', color: item.fontColor }}>{item.title}</Text>
+                                                
                                             </View>
 
                                         </Card>
@@ -69,9 +73,10 @@ const TopDoctors = ({ navigation }) => {
                             )} />
                     </View>
 
-
-
-                    <Card
+                    <FlatList
+                    data={doctors}
+                    renderItem={({item})=>(
+<Card
                         elevation={3}
                         containerStyle={{ borderColor: 'transparent', margin: 5, borderRadius: 15, backgroundColor: '#fff' }}>
 
@@ -82,21 +87,21 @@ const TopDoctors = ({ navigation }) => {
                                     width: 80,
                                     height: 80,
                                     alignSelf: "center",
-                                    backgroundColor: '#00bed8',
+                                    backgroundColor: item.backgroundColor,
                                     borderRadius: 6
                                 }}
                             />
 
                             <View >
-                                <Text>Doctor J</Text>
-                                <Text>Doctor J</Text>
-                                <View style={{ flexDirection: "row", alignItems: "center", justifyContent: 'space-between' }}>
-                                    <View>
-                                        <Text>⭐ 5.5</Text>
+                                <Text style={{ color:'black',marginLeft: 20,fontFamily:'NunitoRegular',fontWeight:'bold'}}>Doctor J</Text>
+                                <Text style={{color:'gray', marginLeft: 20,fontFamily:'NunitoRegular'}}>{item.subtitle}</Text>
+                                <View style={{ flexDirection: "row", alignItems: "center", justifyContent: 'space-between',marginTop:10 }}>
+                                    <View style={{marginLeft:18}}>
+                                        <Text style={{color:'black',fontFamily:'NunitoRegular'}}>⭐5.5 </Text>
                                     </View>
                                     <View>
-                                        <Text style={{ marginLeft: width - 300 }}>
-                                        🕝 10:00AM - 03:00PM
+                                        <Text style={{ color:'black',fontFamily:'NunitoRegular'}}>
+                                        🕝 {item.time}
                                         </Text>
                                     </View>
                                 </View>
@@ -105,6 +110,12 @@ const TopDoctors = ({ navigation }) => {
                         </View>
 
                     </Card>
+                    )}
+                    
+                    
+                    />
+
+                    
 
                 </View>
 
